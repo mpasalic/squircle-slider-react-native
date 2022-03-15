@@ -26,14 +26,14 @@ export const PieShape = ({
   style,
   radius,
   fillAngle,
-  fillColor = "black",
-  backgroundColor = "transparent",
+  fillColor = 'black',
+  backgroundColor = 'transparent',
 }: {
   style?: StyleProp<ViewStyle>;
   radius: number;
   fillAngle: number;
   fillColor?: string;
-  backgroundColor?: string,
+  backgroundColor?: string;
 }) => {
   const widthOuter = radius * 2;
   const heightOuter = radius * 2;
@@ -149,7 +149,12 @@ export const PieShape = ({
             </G>
           </Mask>
         </Defs>
-        <Rect x={0} y={0} width={width} height={height} fill={backgroundColor}></Rect>
+        <Rect
+          x={0}
+          y={0}
+          width={width}
+          height={height}
+          fill={backgroundColor}></Rect>
         <G clipPath="url(#circle-clip)">
           {isFull ? (
             <Use href="#circle" fill={fillColor} />
@@ -172,8 +177,8 @@ export const PieShape = ({
  */
 export const SquircleShape = ({
   radius,
-  fillColor = "black",
-  backgroundColor = "transparent",
+  fillColor = 'black',
+  backgroundColor = 'transparent',
   style,
 }: {
   radius: number;
@@ -181,8 +186,8 @@ export const SquircleShape = ({
   backgroundColor?: string;
   style?: StyleProp<ViewStyle>;
 }) => {
-  const width = radius * 2
-  const height = radius * 2
+  const width = radius * 2;
+  const height = radius * 2;
 
   const scaleX = width / squircleSVGPathSize.width;
   const scaleY = height / squircleSVGPathSize.height;
@@ -191,7 +196,10 @@ export const SquircleShape = ({
   const offsetY = 0;
 
   return (
-    <Svg width={width} height={height} style={[{ width: width, height: height, overflow: "hidden"}, style]} >
+    <Svg
+      width={width}
+      height={height}
+      style={[{width: width, height: height, overflow: 'hidden'}, style]}>
       <Defs>
         <ClipPath id={`outer-clip`}>
           <Path fillRule="evenodd" clipRule="evenodd" d={squircleSVGPath} />
@@ -222,7 +230,7 @@ export const SquircleShape = ({
         </Mask>
       </Defs>
       <G>
-      <Rect
+        <Rect
           width={width}
           height={height}
           mask={`url(#inner-mask)`}
@@ -245,10 +253,10 @@ export const SquircleShape = ({
  * @param style Style for the icon.
  */
 export const SquircleSliderIcon = ({
-  borderColor = "white",
-  fillColor = "black",
-  arrowColor = "white",
-  style
+  borderColor = 'white',
+  fillColor = 'black',
+  arrowColor = 'white',
+  style,
 }: {
   borderColor?: string;
   fillColor?: string;
