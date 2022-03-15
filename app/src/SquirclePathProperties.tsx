@@ -16,7 +16,7 @@ class SquirclePathProperties extends SvgPathProperties {
     this.radius = radius
   }
 
-  getSquircleLength() {
+  getSquircleLength() : number {
     return this.getTotalLength();
   }
 
@@ -25,7 +25,7 @@ class SquirclePathProperties extends SvgPathProperties {
    * @param percent A number between 0 to 1 where 0 represents the top of the squircle and 0.5 represents the bottom (and 1 represents back to the top).
    * @returns A point on the SVG path in the form of an object with x and y properties.
    */
-  getSquirclePointAtPercent(percent: number) {
+  getSquirclePointAtPercent(percent: number) : {x: number, y: number}  {
     const adjustedPercent = (percent + 0.5) % 1
 
     const {x , y} = this.getPointAtLength(this.getTotalLength() * adjustedPercent);
@@ -36,9 +36,9 @@ class SquirclePathProperties extends SvgPathProperties {
   /**
    * Converts from an angle of the squircle to a point on the SVG path.
    * @param angle A number between 0 to 360 where 0 represents the top of the squircle and 180 represents the bottom (and 360 represents back to the top).
-   * @returns 
+   * @returns A point on the SVG path in the form of an object with x and y properties.
    */
-  getSquirclePointAtAngle(angle: number) {
+  getSquirclePointAtAngle(angle: number) : {x: number, y: number} {
     return this.getSquirclePointAtPercent(angle / 360);
   }
 
